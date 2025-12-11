@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from 'react';
-import { MneeCheckout } from '@mnee-pay/checkout';
 import { Lock, Unlock } from 'lucide-react';
+import MneeCheckoutWrapper from '@/components/MneeCheckoutWrapper';
 
 export default function PaywallPage() {
   const [unlocked] = useState(false);
@@ -54,7 +54,7 @@ export default function PaywallPage() {
             <h3 className="text-xl font-bold">Unlock Full Article</h3>
             <p className="text-neutral-500">One-time payment of $1.99</p>
             
-            <MneeCheckout
+            <MneeCheckoutWrapper
               apiBaseUrl="/api"
               previewMode={true}
               config={{

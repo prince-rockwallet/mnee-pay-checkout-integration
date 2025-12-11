@@ -1,6 +1,6 @@
 "use client";
 
-import { MneeCheckout } from '@mnee-pay/checkout';
+import MneeCheckoutWrapper from "@/components/MneeCheckoutWrapper";
 
 export default function DonationPage() {
   return (
@@ -14,7 +14,7 @@ export default function DonationPage() {
         </div>
 
         <div className="bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-xl border border-neutral-200 dark:border-neutral-700">
-          <MneeCheckout
+          <MneeCheckoutWrapper
             apiBaseUrl="/api" // Ensure this points to a valid handler if not using previewMode
             previewMode={true} // Using preview mode for UI testing without backend keys
             config={{

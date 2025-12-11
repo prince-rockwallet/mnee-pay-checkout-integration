@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { MneeCheckout } from '@mnee-pay/checkout';
+import MneeCheckoutWrapper from "@/components/MneeCheckoutWrapper";
 
 export default function EcommercePage() {
   return (
@@ -98,7 +98,7 @@ function ProductCard({ title, price, image, config }: any) {
         </p>
         
         <div className="pt-4 border-t border-neutral-100 dark:border-neutral-700">
-          <MneeCheckout
+          <MneeCheckoutWrapper
             apiBaseUrl="/api"
             previewMode={true}
             config={config}

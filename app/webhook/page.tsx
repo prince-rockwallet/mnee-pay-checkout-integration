@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { Play, Pause, Trash2, Activity } from "lucide-react";
 
-const ReactJson = dynamic(() => import("react-json-view"), { ssr: false });
+const JsonViewer = dynamic(
+  () => import("@textea/json-viewer").then((mod) => mod.JsonViewer),
+  { ssr: false }
+);
 
 interface WebhookLog {
   id: string;
@@ -65,19 +68,24 @@ export default function WebhookPage() {
         </div>
 
         <div className="flex flex-col sm:flex-row justify-between items-center bg-neutral-800 p-4 rounded-xl shadow-lg border border-neutral-700/50 gap-4">
-          
           <div className="flex items-center gap-3 bg-neutral-900/50 px-4 py-2 rounded-lg border border-neutral-700/50">
             <span className="relative flex h-3 w-3">
               {isLive && (
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               )}
-              <span 
+              <span
                 className={`relative inline-flex rounded-full h-3 w-3 ${
-                  isLive ? "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" : "bg-red-500"
+                  isLive
+                    ? "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"
+                    : "bg-red-500"
                 }`}
               ></span>
             </span>
-            <span className={`text-sm font-medium ${isLive ? "text-emerald-400" : "text-neutral-400"}`}>
+            <span
+              className={`text-sm font-medium ${
+                isLive ? "text-emerald-400" : "text-neutral-400"
+              }`}
+            >
               {isLive ? "Live Listening" : "Paused"}
             </span>
           </div>
@@ -101,7 +109,7 @@ export default function WebhookPage() {
                 </>
               )}
             </button>
-            
+
             <div className="w-px h-6 bg-neutral-700 mx-2"></div>
 
             <button
@@ -126,8 +134,12 @@ export default function WebhookPage() {
               <div className="w-16 h-16 bg-neutral-800 rounded-full flex items-center justify-center mb-4">
                 <Activity className="w-8 h-8 text-neutral-600" />
               </div>
-              <p className="text-neutral-400 font-medium">No webhook events received yet.</p>
-              <p className="text-neutral-600 text-sm mt-1">Waiting for incoming POST requests...</p>
+              <p className="text-neutral-400 font-medium">
+                No webhook events received yet.
+              </p>
+              <p className="text-neutral-600 text-sm mt-1">
+                Waiting for incoming POST requests...
+              </p>
             </div>
           ) : (
             logs.map((log) => (
@@ -147,14 +159,10 @@ export default function WebhookPage() {
                 </div>
 
                 <div className="p-4 bg-[#0d1117] overflow-x-auto custom-scrollbar">
-                  <ReactJson
-                    src={log.data}
-                    theme="monokai"
-                    collapsed={false}
-                    displayDataTypes={false}
-                    enableClipboard={true}
-                    style={{ backgroundColor: "transparent", fontSize: '0.875rem' }}
-                    name={false}
+                  <JsonViewer
+                    value={log.data}
+                    theme="dark"
+                    rootName={false}
                   />
                 </div>
               </div>

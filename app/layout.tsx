@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import "@mnee-pay/checkout/styles.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "MNEE Pay Testbench",
@@ -27,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full flex flex-col bg-neutral-900 text-neutral-50`}
+        className={`antialiased h-full flex flex-col bg-neutral-900 text-neutral-50`}
       >
         <nav className="bg-neutral-950 shadow-sm border-b border-neutral-800 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
