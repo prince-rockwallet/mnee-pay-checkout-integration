@@ -4,6 +4,7 @@ import React, { FC } from 'react';
 import type { MneeCheckoutProps } from '@mnee-pay/checkout';
 
 import dynamic from 'next/dynamic';
+import { getMneePayCheckoutBaseUrl } from '@/utils/utils';
 
 const MneeCheckout = dynamic(
   () => import('@mnee-pay/checkout').then((mod) => mod.MneeCheckout),
@@ -17,7 +18,7 @@ const MneeCheckoutWrapper: FC<Omit<MneeCheckoutProps, 'apiBaseUrl'>> = (props) =
   return (
     <MneeCheckout
       {...props}
-      apiBaseUrl={process.env.NEXT_PUBLIC_API_BASE_URL || ''}
+      apiBaseUrl={getMneePayCheckoutBaseUrl()}
     />
   )
 }
