@@ -43,17 +43,19 @@ export default function PaywallPage() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <nav className="border-b border-gray-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm font-medium">
-            <ArrowLeft className="w-4 h-4" /> Back to Hub
-          </Link>
-          
-          <div className="flex items-center gap-4">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-8">
+            <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm font-medium">
+              <ArrowLeft className="w-4 h-4" /> Back to Hub
+            </Link>
+          </div>
+        
+          <div className="flex items-center gap-2">
             <form onSubmit={fetchConfig} className="flex gap-2 items-center">
                 <input 
                   type="text" 
                   placeholder="Paywall Button ID" 
-                  className="bg-white border border-gray-300 rounded-md px-3 py-1 text-xs text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 w-40"
+                  className="bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent w-64"
                   value={buttonId}
                   onChange={(e) => setButtonId(e.target.value)}
                 />
@@ -64,7 +66,7 @@ export default function PaywallPage() {
 
             <div className="h-4 w-px bg-gray-300 mx-2"></div>
 
-            <div className="flex items-center gap-2 text-sm font-medium">
+            <div className="flex items-center px-3 py-2 gap-2 text-sm font-medium">
               <div className={`w-2 h-2 rounded-full ${isUnlocked ? 'bg-green-500' : 'bg-amber-500'}`} />
               {isUnlocked ? 'Premium Access' : 'Locked'}
             </div>

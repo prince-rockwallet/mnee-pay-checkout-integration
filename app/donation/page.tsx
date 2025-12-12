@@ -59,7 +59,7 @@ export default function DonationPage() {
             <button 
               type="submit"
               disabled={loading}
-              className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+              className="bg-indigo-600 hover:bg-indigo-500 text-gray-500 px-4 py-2 rounded-lg text-sm border font-medium transition-colors disabled:opacity-50"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
             </button>
@@ -89,7 +89,7 @@ export default function DonationPage() {
           ) : (
             <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-200 space-y-8 animate-in slide-in-from-bottom-4">
               <div className="text-center space-y-4">
-                <div className="w-16 h-16 bg-rose-100 rounded-2xl flex items-center justify-center mx-auto rotate-3">
+                <div className="w-16 h-16 bg-rose-100 rounded-2xl flex items-center justify-center mx-auto">
                   <Heart className="w-8 h-8 text-rose-500 fill-rose-200" />
                 </div>
                 <h1 className="text-3xl font-bold text-gray-900">{config.name}</h1>
@@ -98,7 +98,7 @@ export default function DonationPage() {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-gray-200">
+              <div className="pt-4 border-t border-gray-200 text-center">
                 <MneeCheckoutWrapper 
                   config={config}
                   onSuccess={() => setDonated(true)}
