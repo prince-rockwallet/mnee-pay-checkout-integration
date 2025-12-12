@@ -22,7 +22,7 @@ export default function DonationPage() {
     setDonated(false);
 
     try {
-      const res = await fetch(`${getMneePayCheckoutBaseUrl()}/buttons/public/${buttonId}/config`);
+      const res = await fetch(`${getMneePayCheckoutBaseUrl()}/api/buttons/public/${buttonId}/config`);
       if (!res.ok) throw new Error("Button not found");
 
       const data = await res.json();

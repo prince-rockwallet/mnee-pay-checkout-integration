@@ -24,7 +24,7 @@ export default function PaywallPage() {
     setIsUnlocked(false);
 
     try {
-      const res = await fetch(`${getMneePayCheckoutBaseUrl()}/buttons/public/${buttonId}/config`);
+      const res = await fetch(`${getMneePayCheckoutBaseUrl()}/api/buttons/public/${buttonId}/config`);
       if (!res.ok) {
         throw new Error("Button not found");
       }
