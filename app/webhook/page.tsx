@@ -53,22 +53,22 @@ export default function WebhookPage() {
   }, [isLive]);
 
   return (
-    <div className="flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 min-h-screen">
+    <div className="flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 min-h-screen bg-gradient-to-b from-amber-50 via-orange-50 to-yellow-50 text-orange-900">
       <main className="w-full max-w-5xl space-y-8">
         <div className="text-center space-y-4">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-4xl font-extrabold tracking-tight text-orange-800">
             Webhook Inspector
           </h1>
-          <p className="text-neutral-400">
+          <p className="text-orange-700/80">
             Send POST requests to:{" "}
-            <code className="bg-indigo-900/30 border border-indigo-500/20 px-2 py-1 rounded text-sm font-mono text-indigo-300">
+            <code className="bg-amber-200 border border-amber-300 px-2 py-1 rounded text-sm font-mono text-orange-900">
               /api/mnee-pay-webhook
             </code>
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-between items-center bg-neutral-800 p-4 rounded-xl shadow-lg border border-neutral-700/50 gap-4">
-          <div className="flex items-center gap-3 bg-neutral-900/50 px-4 py-2 rounded-lg border border-neutral-700/50">
+        <div className="flex flex-col sm:flex-row justify-between items-center bg-amber-100 p-4 rounded-xl shadow-lg border border-amber-300 gap-4">
+          <div className="flex items-center gap-3 bg-amber-200 px-4 py-2 rounded-lg border border-amber-300">
             <span className="relative flex h-3 w-3">
               {isLive && (
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -83,7 +83,7 @@ export default function WebhookPage() {
             </span>
             <span
               className={`text-sm font-medium ${
-                isLive ? "text-emerald-400" : "text-neutral-400"
+                isLive ? "text-emerald-500" : "text-orange-700/60"
               }`}
             >
               {isLive ? "Live Listening" : "Paused"}
@@ -95,7 +95,7 @@ export default function WebhookPage() {
               onClick={() => setIsLive(!isLive)}
               className={`flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg transition-all duration-200 border ${
                 isLive
-                  ? "bg-neutral-700/50 border-neutral-600 text-neutral-300 hover:bg-neutral-700 hover:text-white"
+                  ? "bg-amber-200 border-amber-300 text-orange-900 hover:bg-amber-300 hover:text-orange-800"
                   : "bg-emerald-600 border-emerald-500 text-white hover:bg-emerald-500 shadow-md hover:shadow-lg hover:shadow-emerald-900/20"
               }`}
             >
@@ -110,11 +110,11 @@ export default function WebhookPage() {
               )}
             </button>
 
-            <div className="w-px h-6 bg-neutral-700 mx-2"></div>
+            <div className="w-px h-6 bg-amber-300/50 mx-2"></div>
 
             <button
               onClick={() => setLogs([])}
-              className="flex items-center gap-2 text-sm text-red-400 hover:text-red-300 font-medium px-4 py-2 hover:bg-red-500/10 rounded-lg transition-colors"
+              className="flex items-center gap-2 text-sm text-red-500 hover:text-red-400 font-medium px-4 py-2 hover:bg-red-500/10 rounded-lg transition-colors"
             >
               <Trash2 className="w-4 h-4" />
               Clear
@@ -130,14 +130,14 @@ export default function WebhookPage() {
               <LoadingSkeleton />
             </>
           ) : logs.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-24 border-2 border-dashed border-neutral-800 bg-neutral-900/30 rounded-xl">
-              <div className="w-16 h-16 bg-neutral-800 rounded-full flex items-center justify-center mb-4">
-                <Activity className="w-8 h-8 text-neutral-600" />
+            <div className="flex flex-col items-center justify-center py-24 border-2 border-dashed border-amber-300 bg-amber-100 rounded-xl">
+              <div className="w-16 h-16 bg-amber-200 rounded-full flex items-center justify-center mb-4">
+                <Activity className="w-8 h-8 text-orange-700" />
               </div>
-              <p className="text-neutral-400 font-medium">
+              <p className="text-orange-700 font-medium">
                 No webhook events received yet.
               </p>
-              <p className="text-neutral-600 text-sm mt-1">
+              <p className="text-orange-800 text-sm mt-1">
                 Waiting for incoming POST requests...
               </p>
             </div>
@@ -145,23 +145,23 @@ export default function WebhookPage() {
             logs.map((log) => (
               <div
                 key={log.id}
-                className="bg-neutral-800 rounded-xl shadow-lg border border-neutral-700 overflow-hidden transition-all hover:border-neutral-600"
+                className="bg-amber-100 rounded-xl shadow-lg border border-amber-300 overflow-hidden transition-all hover:border-amber-400"
               >
-                <div className="bg-neutral-900/50 px-6 py-3 border-b border-neutral-700 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                <div className="bg-amber-200/50 px-6 py-3 border-b border-amber-300 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-neutral-500">
-                      ID: <span className="text-neutral-300">{log.id}</span>
+                    <span className="font-mono text-xs text-orange-700/60">
+                      ID: <span className="text-orange-900">{log.id}</span>
                     </span>
                   </div>
-                  <span className="text-xs font-medium px-3 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 rounded-full w-fit">
+                  <span className="text-xs font-medium px-3 py-1 bg-amber-300/30 text-orange-900 border border-amber-300 rounded-full w-fit">
                     {new Date(log.receivedAt).toLocaleTimeString()}
                   </span>
                 </div>
 
-                <div className="p-4 bg-[#0d1117] overflow-x-auto custom-scrollbar">
+                <div className="p-4 bg-amber-200/10 overflow-x-auto custom-scrollbar rounded-b-xl">
                   <JsonViewer
                     value={log.data}
-                    theme="dark"
+                    theme="light"
                     rootName={false}
                   />
                 </div>
@@ -177,11 +177,11 @@ export default function WebhookPage() {
 // Simple Skeleton Loader Component
 function LoadingSkeleton() {
   return (
-    <div className="w-full h-32 bg-neutral-800 rounded-xl border border-neutral-700 p-6 space-y-4 animate-pulse">
-      <div className="h-4 bg-neutral-700 rounded w-1/4"></div>
+    <div className="w-full h-32 bg-amber-200/30 rounded-xl border border-amber-300 p-6 space-y-4 animate-pulse">
+      <div className="h-4 bg-amber-300 rounded w-1/4"></div>
       <div className="space-y-2">
-        <div className="h-3 bg-neutral-700/50 rounded w-3/4"></div>
-        <div className="h-3 bg-neutral-700/50 rounded w-1/2"></div>
+        <div className="h-3 bg-amber-300/50 rounded w-3/4"></div>
+        <div className="h-3 bg-amber-300/50 rounded w-1/2"></div>
       </div>
     </div>
   );
