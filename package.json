@@ -11,7 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@mnee-pay/checkout": "file:mnee-pay-checkout-0.0.9.tgz",
+    "@mnee-pay/checkout": "file:mnee-pay-checkout-0.0.13.tgz",
     "@mui/material": "^6.5.0",
     "lucide-react": "^0.560.0",
     "mongoose": "^9.0.1",
